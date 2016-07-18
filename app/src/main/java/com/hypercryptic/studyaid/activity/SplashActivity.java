@@ -17,6 +17,7 @@ public class SplashActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_splash);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         Thread timerThread = new Thread(){
             public void run()
