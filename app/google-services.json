@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "294018433898",
+    "firebase_url": "https://studyaid-f6286.firebaseio.com",
+    "project_id": "studyaid-f6286",
+    "storage_bucket": "studyaid-f6286.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294018433898:android:564015ba936b933f",
+        "android_client_info": {
+          "package_name": "com.hypercryptic.studyaid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294018433898-njnjgpqakfe07r9meqgjejlucbq8h8ku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hypercryptic.studyaid",
+            "certificate_hash": "44E723F761B75573EA3573A946AE92D21192289A"
+          }
+        },
+        {
+          "client_id": "294018433898-lngab2adkflcefs0ft3cqnqlrhkrbaah.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmbqnuai-ulj3cqArKhJELPwD-5WTPijU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "294018433898-lngab2adkflcefs0ft3cqnqlrhkrbaah.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
