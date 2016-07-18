@@ -1,7 +1,10 @@
 package com.hypercryptic.studyaid.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -12,20 +15,31 @@ import com.facebook.login.LoginResult;
 import com.hypercryptic.studyaid.R;
 
 public class LoginActivity extends AppCompatActivity {
+    private EditText emailInput;
+    private EditText passwordInput;
+
     CallbackManager callbackManager;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         setContentView(R.layout.activity_login);
 
+        emailInput = (EditText) findViewById(R.id.input_email);
+        passwordInput = (EditText) findViewById(R.id.input_password);
+
+        Button login = (Button) findViewById(R.id.login_btn);
+        Button signup = (Button) findViewById(R.id.signUpBtn);
+
         callbackManager = CallbackManager.Factory.create();
 
         LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                // App code
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish();
             }
 
             @Override
@@ -38,5 +52,12 @@ public class LoginActivity extends AppCompatActivity {
                 // App code
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 }

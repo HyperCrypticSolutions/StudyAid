@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#6B7A8F</color>
+    <color name="colorPrimaryDark">#6B7A9F</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="windowBackground">#F7C331</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="navigationBarColor">#F7882F</color>
+
+    <color name="blueberry">#6B7A8F</color>
+    <color name="blueberryDark">#6B7A9F</color>
+    <color name="apricot">#f7882f</color>
+    <color name="citrus">#f7c331</color>
+    <color name="appleCore">#DCC7AA</color>
 
     <color name="backgroundYellow">#f5ec40</color>
     <color name="fluidBlue">#3fa9f5</color>
