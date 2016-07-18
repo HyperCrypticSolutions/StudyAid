@@ -12,7 +12,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
         AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_splash);
     }
