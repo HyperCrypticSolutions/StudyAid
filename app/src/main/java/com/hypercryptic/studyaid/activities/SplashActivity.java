@@ -1,4 +1,4 @@
-package com.hypercryptic.studyaid.activity;
+package com.hypercryptic.studyaid.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

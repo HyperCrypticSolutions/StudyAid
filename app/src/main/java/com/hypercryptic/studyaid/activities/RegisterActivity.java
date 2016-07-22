@@ -1,4 +1,4 @@
-package com.hypercryptic.studyaid.activity;
+package com.hypercryptic.studyaid.activities;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
