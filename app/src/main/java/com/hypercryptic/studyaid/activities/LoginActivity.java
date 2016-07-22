@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -15,6 +16,9 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.hypercryptic.studyaid.R;
@@ -42,6 +46,9 @@ public class LoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        emailInput = (EditText) findViewById(R.id.input_email);
+        passwordInput = (EditText) findViewById(R.id.input_password);
+
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -56,13 +63,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
-        emailInput = (EditText) findViewById(R.id.input_email);
-        passwordInput = (EditText) findViewById(R.id.input_password);
-
         Button login = (Button) findViewById(R.id.login_btn);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String email = emailInput.getText().toString();
+                String password = passwordInput.getText().toString();
+
+                loginUser(email, password);
 
             }
         });
@@ -71,7 +79,9 @@ public class LoginActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -87,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onCancel() {
-                // App code
+                Log.d(TAG, "Facebook onCancel");
             }
 
             @Override
@@ -95,6 +105,21 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d(TAG, "FBLoginManager Error: " + exception.toString());
             }
         });
+    }
+
+    private void loginUser(String email, String password){
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
+
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "signInWithEmail", task.getException());
+                            Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     @Override
