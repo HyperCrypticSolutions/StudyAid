@@ -1,7 +1,15 @@
 package com.hypercryptic.studyaid;
 
+import android.app.Application;
+import android.os.Bundle;
+
 /**
- * Created by sharukhhasan on 7/18/16.
+ * Created by Sharukh Hasan on 7/17/16.
+ * Copyright © 2016 HyperCryptic Solutions, LLC. All rights reserved.
  */
-public class AppController {
+public class AppController extends Application{
+
+    public void onCreate(Bundle savedInstancestate){
+
+    }
 }

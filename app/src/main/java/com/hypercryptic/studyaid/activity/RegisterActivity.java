@@ -7,13 +7,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.hypercryptic.studyaid.R;
 
 /**
- * Created by sharukhhasan on 7/18/16.
+ * Created by Sharukh Hasan on 7/18/16.
+ * Copyright © 2016 HyperCryptic Solutions, LLC. All rights reserved.
  */
 public class RegisterActivity extends AppCompatActivity {
     private final String TAG = "RegisterActivity";
@@ -41,7 +46,10 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                registerUser();
+                String strName = user_name.getText().toString();
+                String strEmail = user_email.getText().toString();
+                String strPass = user_pass.getText().toString();
+                registerUser(strName, strEmail, strPass);
             }
         });
 
@@ -64,8 +72,23 @@ public class RegisterActivity extends AppCompatActivity {
         };
     }
 
-    private void registerUser(){
-        
+    private void registerUser(String name, String email, String pass)
+    {
+        mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task)
+            {
+                Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
+
+                // If sign in fails, display a message to the user. If sign in succeeds
+                // the auth state listener will be notified and logic to handle the
+                // signed in user can be handled in the listener.
+                if(!task.isSuccessful())
+                {
+                    Toast.makeText(RegisterActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override

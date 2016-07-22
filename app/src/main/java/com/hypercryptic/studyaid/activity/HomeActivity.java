@@ -6,7 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import com.hypercryptic.studyaid.R;
 
 /**
- * Created by sharukhhasan on 7/18/16.
+ * Created by Sharukh Hasan on 7/17/16.
+ * Copyright © 2016 HyperCryptic Solutions, LLC. All rights reserved.
  */
 public class HomeActivity extends AppCompatActivity {
 

@@ -8,6 +8,10 @@ import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.hypercryptic.studyaid.R;
 
+/**
+ * Created by Sharukh Hasan on 7/17/16.
+ * Copyright © 2016 HyperCryptic Solutions, LLC. All rights reserved.
+ */
 public class SplashActivity extends AppCompatActivity {
 
     @Override
